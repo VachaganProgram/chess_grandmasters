@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../blueprints"
+		},
+		{
+			"path": "../database"
+		},
+		{
+			"path": "../static"
+		},
+		{
+			"path": "../templates"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../venv"
+		}
+	]
+}

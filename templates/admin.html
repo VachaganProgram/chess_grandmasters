@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Masters - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+
+<body>
+
+<div class="loading-screen" id="loading">
+    🔐 Verifying admin access...
+</div>
+
+<div class="content" id="content">
+    <div class="header">
+        <div style="display: flex; gap: 12px; align-items: center">
+            <div class="user-icon">♔</div>
+            <div class="user-details">
+                <h2 id="username">Welcome, Admin</h2>
+                <span class="role" id="role">admin</span>
+            </div>
+        </div>
+        <button class="logout-btn" onclick="logout()">⎋</button>
+    </div>
+
+    <div class="tabs">
+        <button class="tab">👨‍🎓 Masters</button>
+    </div>
+
+    <div class="tab-content">
+
+    <div class="section">
+    <h2>📋 Get All</h2>
+    <button onclick="getMasters()">Get</button>
+    <div id="masters_list" class="response"></div>
+    </div>
+
+    <div class="section">
+    <h2>🔍 Get by ID</h2>
+    <input id="master_id" type="number" placeholder="Master ID">
+    <button onclick="getMaster()">Get</button>
+    <div id="master_detail" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>➕ Create Master</h2>
+        <input id="create_master_name" placeholder="Name">
+        <input id="create_master_years" type="text" placeholder="Champion years (e.g. 1886–1894)">
+        <input id="create_master_birth_year" type="number" placeholder="Born (Year)">
+        <input id="create_master_death_year" type="number" placeholder="Died (Year)">
+        <input id="create_master_country" placeholder="Country">
+        <textarea id="create_master_piece" placeholder="Favorite piece"></textarea>
+        <button onclick="createMaster()">Create</button>
+        <div id="create_master_res" class="response"></div>
+    </div>
+
+    <div class="section">
+    <h2>🔗 Attach</h2>
+    <input id="attach_master_id" type="number" placeholder="Master ID">
+    <input id="attach_user_id" type="number" placeholder="User ID">
+    <button onclick="attachMaster()">Attach</button>
+    <div id="attach_res" class="response"></div>
+    </div>
+
+    <div class="section">
+    <h2>🗑 Delete</h2>
+    <input id="delete_master_id" type="number" placeholder="Master ID">
+    <button class="delete" onclick="deleteMaster()">Delete</button>
+    <div id="delete_master_res" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>✏️ Update Master</h2>
+        <input id="update_master_id" type="number" placeholder="Master ID">
+        <input id="update_master_name" placeholder="Name">
+        <input id="update_master_years" type="text" placeholder="Champion years (e.g. 1886–1894)">
+        <input id="update_master_birth_year" type="number" placeholder="Born (Year)">
+        <input id="update_master_death_year" type="number" placeholder="Died (Year)">
+        <input id="update_master_country" placeholder="Country">
+        <textarea id="update_master_piece" placeholder="Favorite piece"></textarea>
+        <button onclick="updateMaster()">Update</button>
+        <div id="update_master_res" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>👥 Registered Users</h2>
+        <button onclick="listUsers()">Get Users</button>
+        <div id="users_list" class="response"></div>
+    </div>
+
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+
+</body>
+</html>
