@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chess Masters - Guest</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/guest.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Masters - Guest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/guest.css') }}">
 
 </head>
+
 <body>
 
-<div class="loading-screen" id="loading">
-    🔐 Verifying access...
-</div>
+    <div class="loading-screen" id="loading">
+        🔐 Verifying access...
+    </div>
 
-<div class="content" id="content">
-    <div class="header">
-        <div class="user-info">
-            <div class="user-icon">♞</div>
-            <div class="user-details">
-                <h2 id="username-display">Welcome, Guest</h2>
-                <span class="role">guest</span>
+    <div class="content" id="content">
+        <div class="header">
+            <div class="user-info">
+                <div class="user-icon">♞</div>
+                <div class="user-details">
+                    <h2 id="username-display">Welcome, Guest</h2>
+                    <span class="role">guest</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">⎋</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab(event,'masters')">👨‍🎓 Masters</button>
+        </div>
+
+        <div id="masters-tab" class="tab-content active">
+            <div class="section">
+                <h2>📋 List Masters</h2>
+                <button onclick="getMasters()">📥 Get All Masters</button>
+                <div id="masters_list" class="response"></div>
+            </div>
+            <div class="section">
+                <h2>🔍 Get Master by ID</h2>
+                <input type="number" id="master_id" placeholder="Enter master ID">
+                <button onclick="getMaster()">🔎 Get Master</button>
+                <div id="master_detail" class="response"></div>
             </div>
         </div>
-        <button class="logout-btn" onclick="logout()">⎋</button>
     </div>
-
-    <div class="tabs">
-        <button class="tab active" onclick="switchTab(event,'masters')">👨‍🎓 Masters</button>
-    </div>
-
-    <div id="masters-tab" class="tab-content active">
-        <div class="section">
-            <h2>📋 List Masters</h2>
-            <button onclick="getMasters()">📥 Get All Masters</button>
-            <div id="masters_list" class="response"></div>
-        </div>
-        <div class="section">
-            <h2>🔍 Get Master by ID</h2>
-            <input type="number" id="master_id" placeholder="Enter master ID">
-            <button onclick="getMaster()">🔎 Get Master</button>
-            <div id="master_detail" class="response"></div>
-        </div>
-    </div>
-</div>
-<script src="{{ url_for('static', filename='js/guest.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/guest.js') }}"></script>
 
 </body>
+
 </html>
